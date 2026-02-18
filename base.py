@@ -16,8 +16,13 @@ class vechile:
     
 
     def calculate_fine(self):
-        if self.speed > 90:
-            
+        if self.speed > speed_limit() + 30 :
+            return 2000
+        elif self.speed > speed_limit() + 10 :
+            return 1500
+        else:
+            return 800
+
     def check_Speed(self):
         if self.speed > 90:
             print(f"Your Speed is {self.speed} Km/h and Your Vechile Number is {self.vech_name} and Your Registration number is this {self.rgs_number} \nYour licence-number is {self.licence_number}")
