@@ -3,14 +3,24 @@ import random
 challan_pay = random.randint(250, 1500)
 
 class vechile:
-    def __init__(self, vech_name, speed , rgs_number):
+    def __init__(self, vech_name, speed , rgs_number , licence_number = True):
+
         self.vech_name = vech_name
+        self.licence_number = licence_number
         self.rgs_number = rgs_number
         self.speed = speed
 
+
+    def speed_limit(self):
+        return 90 
+    
+
+    def calculate_fine(self):
+        if self.speed > 90:
+            
     def check_Speed(self):
         if self.speed > 90:
-            print(f"Your Speed is {self.speed} Km/h and Your Vechile Number is {self.vech_name} and Your Registration number is this {self.rgs_number}")
+            print(f"Your Speed is {self.speed} Km/h and Your Vechile Number is {self.vech_name} and Your Registration number is this {self.rgs_number} \nYour licence-number is {self.licence_number}")
             self.challan()
         else:
             print(f"{self.vech_name} is driving safely at {self.speed} km/h")
@@ -20,27 +30,17 @@ class vechile:
 
 class car(vechile):
     def check_speed(self):
-        if self.speed > 90:
-            print(f"Car {self.vech_name} exceeded speed limit! Speed: {self.speed} km/h")
-            self.challan()
-        else:
-            print(f"Car {self.vech_name} is within speed limit.")
+        return 100
 
 class Truck(vechile):
     def check_speed(self):
-        if self.speed > 120:
-            print(f"Truck {self.vech_name} exceeded speed limit! Speed: {self.speed} km/h")
-            self.challan()
-        else:
-            print(f"Truck {self.vech_name} is within speed limit.")
+        return 120
+        
 
 class Bike(vechile):
     def check_speed(self):
-        if self.speed > 80:
-            print(f"Bike {self.vech_name} exceeded speed limit! Speed: {self.speed} km/h")
-            self.challan()
-        else:
-            print(f"Bike {self.vech_name} is within speed limit.")
+        return 80
+        
 
 def Check_speed(vechile_obj):
     vechile_obj.check_Speed()
